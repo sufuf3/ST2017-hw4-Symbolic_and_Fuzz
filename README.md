@@ -45,7 +45,7 @@ Creating 'triangle.cpp.gcov'
 
 **Triangle problems**  
  - [x] C0, C1, C2
- - [ ] MCDC 
+ - [x] MCDC 
 
 **NextDate problems**    
  - [ ] C0, C1, C2
