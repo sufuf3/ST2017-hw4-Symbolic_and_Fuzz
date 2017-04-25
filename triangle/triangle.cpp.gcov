@@ -1,0 +1,21 @@
+        -:    0:Source:triangle.cpp
+        -:    0:Graph:triangle.gcno
+        -:    0:Data:triangle.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include "triangle.hpp"
+        -:    3:
+       14:    4:int triangle_type( int a, int b, int c ) {
+       14:    5:	if (a < 1 || b < 1 || c < 1 || a > 200 || b > 200 || c > 200)
+        2:    6:		return TYPE_INVALID_INPUT;
+       12:    7:	if( !(a + b > c && a + c > b && b + c > a) )
+        3:    8:		return TYPE_NOTTRIANGLE;
+        9:    9:	if( a==b || b==c || c==a){
+        6:   10:		if (a==b && b==c && c==a)
+        3:   11:			return TYPE_EQUILATERAL;
+        -:   12:		else
+        3:   13:			return TYPE_ISOSCELES;
+        -:   14:	}
+        3:   15:	return TYPE_SCALENE;
+        -:   16:}
