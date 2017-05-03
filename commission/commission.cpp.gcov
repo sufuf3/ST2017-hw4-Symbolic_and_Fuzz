@@ -1,0 +1,31 @@
+        -:    0:Source:commission.cpp
+        -:    0:Graph:commission.gcno
+        -:    0:Data:commission.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "commission.hpp"
+        -:    2:
+        -:    3://const double SALE_THRESHOLD[SALE_INPUT] = { 0.0, 1000.0, 1800.0 };
+        -:    4://const double COMMISSION_PERCENT[SALE_INPUT] = { 0.1, 0.15, 0.2 };
+        -:    5:
+       16:    6:double count_commission( int lock, int stock, int barrel ) {
+        -:    7:	
+       16:    8:	int i, rank = 0;
+       16:    9:	double sale = 0.0, commission = 0.0;
+        -:   10:	
+        -:   11:	// validate the input sale
+       16:   12:	if( lock < LOCK_MIN || stock < STOCK_MIN || barrel < BARREL_MIN || lock > LOCK_MAX || stock > STOCK_MAX || barrel > BARREL_MAX ) 
+        9:   13:		return INVALID_SALE;
+        -:   14:	
+        7:   15:	sale = LOCK_PRICE * lock + STOCK_PRICE * stock + BARREL_PRICE * barrel;
+        7:   16:	return sale;		
+        -:   17:/*	if(sale < 1000 ){
+        -:   18:		return sale*0.1;
+        -:   19:	}
+        -:   20:	else if(sale < 1800){
+        -:   21:		return 100+(sale-1000)*0.15;
+        -:   22:	}
+        -:   23:	else{
+        -:   24:		return 220+(sale-1800)*0.2;
+        -:   25:	}*/
+        -:   26:}

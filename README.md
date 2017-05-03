@@ -52,5 +52,5 @@ Creating 'triangle.cpp.gcov'
  - [x] MCDC 
 
 **Commission problems**    
- - [ ] C0, C1, C2
- - [ ] MCDC 
+ - [x] C0, C1, C2
+ - [x] MCDC 
