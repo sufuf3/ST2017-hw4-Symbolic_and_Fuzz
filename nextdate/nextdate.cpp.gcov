@@ -1,0 +1,65 @@
+        -:    0:Source:nextdate.cpp
+        -:    0:Graph:nextdate.gcno
+        -:    0:Data:nextdate.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include "nextdate.hpp"
+        -:    3:
+        -:    4:const int D_MAX[M_MAX + 1] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        -:    5:
+       16:    6:int nextdate( int yy, int mm, int dd ) {
+       16:    7:	if( yy < Y_MIN || yy > Y_MAX || mm < M_MIN || mm > M_MAX)
+        8:    8:		return INVALID_DATE;
+        -:    9:	//31days
+        8:   10:	if( mm == 1 || mm == 3 || mm == 5 || mm == 7 || mm == 8 || mm == 10 || mm == 12 ){
+        6:   11:		if(dd >= 1 && dd<31)
+    #####:   12:			dd++;
+        3:   13:		else if(dd==31){
+        3:   14:			dd=1;
+        3:   15:			mm++;
+        3:   16:			if(mm==13){
+        3:   17:				mm=1;
+        3:   18:				yy++;
+        -:   19:			}
+        -:   20:		}
+        -:   21:		else
+    #####:   22:			return INVALID_DATE;
+        -:   23:	}
+        5:   24:	else if(mm == 4 || mm == 6 || mm == 9 || mm == 11){
+        8:   25:		if(dd >= 1 && dd<30)
+        2:   26:			dd++;
+        2:   27:		else if(dd==30){
+        2:   28:			dd=1;
+        2:   29:			mm++;
+        -:   30:		}	
+        -:   31:		else
+    #####:   32:			return INVALID_DATE;
+        -:   33:	}
+        1:   34:	else if(mm == 2){
+        1:   35:		if(dd >= 1 && dd<28)
+    #####:   36:			dd++;
+        1:   37:		else if( dd == 28 ){
+    #####:   38:			if( (yy % 4 == 0 && yy % 100 != 0 ) || yy % 400 == 0 ){
+    #####:   39:				dd++;
+        -:   40:			}
+        -:   41:			else{
+    #####:   42:				dd = 1;
+    #####:   43:				mm = 3;
+        -:   44:			}
+        -:   45:		}
+        1:   46:		else if( dd == 29 ){
+    #####:   47:			if( (yy % 4 == 0 && yy % 100 != 0 ) || yy % 400 == 0 ){
+    #####:   48:				dd = 1;
+    #####:   49:				mm = 3;
+        -:   50:			}
+        -:   51:			else{
+    #####:   52:				return INVALID_DATE;
+        -:   53:			}
+        -:   54:		}
+        -:   55:		else{
+        1:   56:			return INVALID_DATE;
+        -:   57:		}
+        -:   58:	}
+        7:   59:	return (yy * 10000) + (mm * 100) + (dd);
+        -:   60:}
