@@ -1,4 +1,5 @@
 #include "commission.hpp"
+#include "klee/klee.h"
 
 //const double SALE_THRESHOLD[SALE_INPUT] = { 0.0, 1000.0, 1800.0 };
 //const double COMMISSION_PERCENT[SALE_INPUT] = { 0.1, 0.15, 0.2 };
@@ -14,13 +15,12 @@ double count_commission( int lock, int stock, int barrel ) {
 	
 	sale = LOCK_PRICE * lock + STOCK_PRICE * stock + BARREL_PRICE * barrel;
 	return sale;		
-/*	if(sale < 1000 ){
-		return sale*0.1;
-	}
-	else if(sale < 1800){
-		return 100+(sale-1000)*0.15;
-	}
-	else{
-		return 220+(sale-1800)*0.2;
-	}*/
+}
+
+int main() {
+        int lock, stock, barrel;
+        klee_make_symbolic(&lock, sizeof(lock), "lock");
+        klee_make_symbolic(&stock, sizeof(stock), "stock");
+        klee_make_symbolic(&barrel, sizeof(barrel), "barrel");
+        return count_commission(lock, stock, barrel);
 }
