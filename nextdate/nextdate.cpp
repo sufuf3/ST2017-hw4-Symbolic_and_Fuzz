@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "nextdate.hpp"
-
+#include "klee/klee.h"
 const int D_MAX[M_MAX + 1] = { 0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 int nextdate( int yy, int mm, int dd ) {
@@ -57,4 +57,12 @@ int nextdate( int yy, int mm, int dd ) {
 		}
 	}
 	return (yy * 10000) + (mm * 100) + (dd);
+}
+
+int main() {
+        int yy, mm, dd;
+        klee_make_symbolic(&yy, sizeof(yy), "yy");
+        klee_make_symbolic(&mm, sizeof(mm), "mm");
+        klee_make_symbolic(&dd, sizeof(dd), "dd");
+        return nextdate(yy, mm, dd);
 }
