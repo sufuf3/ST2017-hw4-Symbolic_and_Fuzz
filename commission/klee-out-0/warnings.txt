@@ -1,0 +1,6 @@
+KLEE: WARNING ONCE: silently concretizing (reason: floating point) expression (Add w32 (Add w32 (Mul w32 45
+                            (ReadLSB w32 0 lock))
+                   (Mul w32 30
+                            (ReadLSB w32 0 stock)))
+          (Mul w32 25
+                   (ReadLSB w32 0 barrel))) to value 100 (/home/klee/ST2017-hw4-Symbolic_and_Fuzz/commission/commission.cpp:16)
