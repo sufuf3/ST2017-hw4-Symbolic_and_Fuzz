@@ -1,9 +1,9 @@
-start_time        : 1497238400
-last_update       : 1497239044
-fuzzer_pid        : 2921
-cycles_done       : 8965
-execs_done        : 2296504
-execs_per_sec     : 3843.79
+start_time        : 1497239824
+last_update       : 1497249295
+fuzzer_pid        : 1425
+cycles_done       : 122197
+execs_done        : 31283907
+execs_per_sec     : 2664.73
 paths_total       : 1
 paths_favored     : 1
 paths_found       : 0
@@ -20,7 +20,7 @@ unique_hangs      : 0
 last_path         : 0
 last_crash        : 0
 last_hang         : 0
-execs_since_crash : 2296504
+execs_since_crash : 31283907
 exec_timeout      : 20
 afl_banner        : triangle_fuzz
 afl_version       : 2.42b
