@@ -6,6 +6,8 @@
   * [Use KLEE](#use-klee)  
   * [Install AFL](#install-afl)  
   * [Use AFL](#use-afl)  
+  	* [Triangle problems](#triangle-problems)  
+  	* [Nextdate problems](#nextdate-problems)  
   * [list](#list)  
 
 ## Get KLEE Docker Image and create  
@@ -106,6 +108,7 @@ object    2: data: 0
 5. sudo make install  
 6. echo core > sudo /proc/sys/kernel/core_pattern `#root`    
 ## Use AFL  
+### Triangle problems
 1. cd ~/ST2017-hw4-Symbolic_and_Fuzz/triangle  
 2. afl-gcc triangle.cpp -o triangle_fuzz  
 ```
@@ -113,8 +116,23 @@ afl-cc 2.42b by <lcamtuf@google.com>
 afl-as 2.42b by <lcamtuf@google.com>
 [+] Instrumented 13 locations (64-bit, non-hardened mode, ratio 100%).
 ```
-3.  afl-fuzz -i afl_in -o afl_out ./triangle_fuzz  
+3. mkdir afl_in afl_out
+4. echo "22" > ./afl_in/1 
+5. afl-fuzz -i afl_in -o afl_out ./triangle_fuzz  
 ![](https://i.imgur.com/orjYnFu.png)
+
+### NextDate problems
+1. cd ~/ST2017-hw4-Symbolic_and_Fuzz/nextdate  
+2. afl-gcc nextdate.cpp -o nextdate_fuzz  
+```
+afl-cc 2.42b by <lcamtuf@google.com>
+afl-as 2.42b by <lcamtuf@google.com>
+[+] Instrumented 34 locations (64-bit, non-hardened mode, ratio 100%).
+```
+3. mkdir afl_in afl_out
+4. echo "22" > ./afl_in/1 
+5. afl-fuzz -i afl_in -o afl_out ./nextdate_fuzz  
+![](https://i.imgur.com/h6ENCyo.png)
 
 ## list  
 
@@ -124,7 +142,7 @@ afl-as 2.42b by <lcamtuf@google.com>
   
 **NextDate problems**      
  - [x] symbolic testing: klee  
- - [ ] fuzz testing: AFL  
+ - [x] fuzz testing: AFL  
   
 **Commission problems**    
  - [x] symbolic testing: klee  

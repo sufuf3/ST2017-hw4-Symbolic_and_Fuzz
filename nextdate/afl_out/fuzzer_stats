@@ -1,0 +1,27 @@
+start_time        : 1497250417
+last_update       : 1497250594
+fuzzer_pid        : 9292
+cycles_done       : 362
+execs_done        : 534880
+execs_per_sec     : 3156.58
+paths_total       : 2
+paths_favored     : 1
+paths_found       : 0
+paths_imported    : 0
+max_depth         : 1
+cur_path          : 0
+pending_favs      : 0
+pending_total     : 0
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.00%
+unique_crashes    : 0
+unique_hangs      : 0
+last_path         : 0
+last_crash        : 0
+last_hang         : 0
+execs_since_crash : 534880
+exec_timeout      : 20
+afl_banner        : nextdate_fuzz
+afl_version       : 2.42b
+command_line      : afl-fuzz -i afl_in -o afl_out ./nextdate_fuzz
