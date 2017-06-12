@@ -8,6 +8,7 @@
   * [Use AFL](#use-afl)  
   	* [Triangle problems](#triangle-problems)  
   	* [Nextdate problems](#nextdate-problems)  
+  	* [Commission problems](#commission-problems)  
   * [list](#list)  
 
 ## Get KLEE Docker Image and create  
@@ -134,6 +135,19 @@ afl-as 2.42b by <lcamtuf@google.com>
 5. afl-fuzz -i afl_in -o afl_out ./nextdate_fuzz  
 ![](https://i.imgur.com/h6ENCyo.png)
 
+### Commission problems
+1. cd ~/ST2017-hw4-Symbolic_and_Fuzz/commission  
+2. afl-gcc commission.cpp -o commission_fuzz  
+```
+afl-cc 2.42b by <lcamtuf@google.com>
+afl-as 2.42b by <lcamtuf@google.com>
+[+] Instrumented 34 locations (64-bit, non-hardened mode, ratio 100%).
+```
+3. mkdir afl_in afl_out
+4. echo "22" > ./afl_in/1 
+5. afl-fuzz -i afl_in -o afl_out ./commission_fuzz  
+![](http://i.imgur.com/P5gQWlS.png)
+
 ## list  
 
 **Triangle problems**  
@@ -146,4 +160,4 @@ afl-as 2.42b by <lcamtuf@google.com>
   
 **Commission problems**    
  - [x] symbolic testing: klee  
- - [ ] fuzz testing: AFL  
+ - [x] fuzz testing: AFL  

@@ -1,0 +1,27 @@
+start_time        : 1497252937
+last_update       : 1497253258
+fuzzer_pid        : 26565
+cycles_done       : 4296
+execs_done        : 1100977
+execs_per_sec     : 3615.56
+paths_total       : 1
+paths_favored     : 1
+paths_found       : 0
+paths_imported    : 0
+max_depth         : 1
+cur_path          : 0
+pending_favs      : 0
+pending_total     : 0
+variable_paths    : 0
+stability         : 100.00%
+bitmap_cvg        : 0.00%
+unique_crashes    : 0
+unique_hangs      : 0
+last_path         : 0
+last_crash        : 0
+last_hang         : 0
+execs_since_crash : 1100977
+exec_timeout      : 20
+afl_banner        : commission_fuzz
+afl_version       : 2.42b
+command_line      : afl-fuzz -i afl_in -o afl_out ./commission_fuzz
